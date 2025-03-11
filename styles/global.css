@@ -43,74 +43,12 @@ body {
 
 }
 
-p {
+.sm {
   font: var(--text-small);
   color: var(--content-secondary);
 }
 
-h2 {
+.md {
   font: var(--text-medium);
   color: var(--content-secondary);
 }
-
-
-
-
-
-
-/* paragraph/small */
-font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 150%;
-
-
-/* paragraph/medium */
-font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 150%;
-
-/* numbers */
-font-family: 'Sora';
-font-style: normal;
-font-weight: 800;
-font-size: 24px;
-line-height: 130%;
-/* or 31px */
-letter-spacing: -0.04em;
-text-transform: uppercase;
-
-color: #FFFFFF;
-
-
-
-
-/* paragraph/large */
-font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 150%;
-/* or 24px */
-
-color: #C7C9CC;
-
-
-
-/* label/large */
-font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 150%;
-/* identical to box height, or 30px */
-text-transform: uppercase;
-
-color: #FFFFFF;
-
-
-
-

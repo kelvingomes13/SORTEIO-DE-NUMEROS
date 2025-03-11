@@ -1,0 +1,20 @@
+header {
+  
+  max-width: 80rem;
+  width: 100%;
+  margin-top: 4.75rem;
+  margin-left: 7.5rem;
+
+
+  
+  & h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 800 1.5rem/130%;
+    color: var(--content-primary);
+    gap: 11px;
+  }
+  
+  
+}
+
+
