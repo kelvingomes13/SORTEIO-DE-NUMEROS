@@ -1,0 +1,116 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --content-primary: #ffffff;
+  --content-secondary: #C7C9CC;
+  --content-tertiary: #D9D9D9;
+  --content-brand: #C58DE7;
+  --content-inverse: #030203;
+
+  --background-primary: #020202;
+  --background-secondary: #111012;
+  --background-tertiary: #24222E;
+  --background-brand: #C58DE7;
+  --background-gray: #3D3D3D;
+
+  --accent-pink: #D586E0;
+  --accent-blue: #91A1FA;
+  --accent-green: #77C0Af;
+  --accent-lime: #D1DC97;
+  --accent-red: #E9A9B3;
+
+  --gradient-border:#77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%;
+
+  --gradient-background:#D586E0 0%, #91A1FA 98.93%;
+
+  --gradient-content: #C7C9CC 0%, #3D3D3D 100%;
+
+  --text-small: 500 14px/150% 'Roboto Flex', sans-serif;
+  --text-medium: 500 16px/150% 'Roboto Flex', sans-serif;
+  --text-large: 800 72px/130% 'Sora', sans-serif;
+  --text-numbers: 800 24px/130% 'Sora', sans-serif, var(--content-brand);
+
+}
+
+body {
+  background-image: url("../assets/background.png");
+  background-color: var(--background-primary);
+  
+
+}
+
+p {
+  font: var(--text-small);
+  color: var(--content-secondary);
+}
+
+h2 {
+  font: var(--text-medium);
+  color: var(--content-secondary);
+}
+
+
+
+
+
+
+/* paragraph/small */
+font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 150%;
+
+
+/* paragraph/medium */
+font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 150%;
+
+/* numbers */
+font-family: 'Sora';
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 130%;
+/* or 31px */
+letter-spacing: -0.04em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+
+/* paragraph/large */
+font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+/* or 24px */
+
+color: #C7C9CC;
+
+
+
+/* label/large */
+font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 150%;
+/* identical to box height, or 30px */
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+
