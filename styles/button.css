@@ -1,0 +1,69 @@
+
+.btn {
+  color: var(--content-primary);
+  font: var(--text-medium); 
+  background-color: var(--background-tertiary);
+  
+  --btn-bg-color:var(--text-medium);
+  --btn-color: var(--content-primary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: .5rem;
+  gap: .5rem;
+  margin-top: 2.5rem;
+  padding: 16px;  
+  font: var(--text-medium);
+  cursor: pointer;  
+  color: var(--btn-color);
+  position: relative;/* Para o efeito de onda */
+}
+.btn:hover::before {
+  content: "";
+  position: absolute;
+  background-image: #ffffff;
+  top: -1px; /* Ajuste para a espessura da borda */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(
+      to right,
+      #77C0AF 0%,
+      #D1DC97 14.84%,
+      #E9A9B3 32.15%,
+      #D586E0 65.79%,
+      #91A1FA 84.58%
+  );
+  border-radius: 8px; /* Bordas arredondadas */
+  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+
+     transition: opacity 0.3s ease; /* Transição suave */
+            background-size: 200% 200%; /* Aumenta o tamanho do gradiente para permitir o movimento */
+  }
+.btn:hover {
+  background-color: var(--background-primary);
+    
+}
+
+   @keyframes moverGradienteVaiVolta {
+            0% {
+                background-position: 0% 50%;
+            }     
+            50% {
+                background-position: 20% 20%;
+            }
+            100% {
+                background-position: 0% 75%;
+            }     
+        }
+
+        /* Efeito hover para mostrar a borda e iniciar a animação */
+        .box:hover::before {
+            opacity: 1; /* Torna a borda visível */
+            animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
+        }
+ 
+
+     

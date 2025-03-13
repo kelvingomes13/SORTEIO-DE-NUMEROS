@@ -1,0 +1,65 @@
+#style {
+  margin-top: 1rem;
+  .toggle {
+  display: flex;
+ align-items: center;
+  cursor: pointer;
+  gap: .75rem;
+}
+.slider {
+    position: relative;
+    width: 50px;
+    height: 2rem;
+    border-radius: 999px;
+    padding-left: .25rem;
+    /* border: 1px solid var(--content-secondary); */
+    transition: 0.3s;
+    background:#C7C9CC;
+  }
+
+   .slider::before {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--content-primary);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    
+  }
+
+   input:checked + .slider { 
+   background: linear-gradient(91.26deg, #D586E0 0%, #91A1FA 98.93%);
+  
+
+  }
+    input:checked + .slider::before { /* Para alterar a cor do slider (bolinha) e informar o quanto ele "andara" para a direita*/
+    background: var(--content-primary);
+    margin-left: 1rem;
+  }
+
+
+  .toggle .label { /* Alterando o texto */
+    display: inline-block;
+    width: 10rem; /* Garante espaço suficiente para o texto */
+    text-align: left; /* Mantém alinhado */
+  }
+
+  .toggle .label::before {
+    content: "Não repetir número"; /* Texto padrão */
+    color: var(--content-secondary);
+    font: var(--text-medium);
+  }
+
+  .toggle input:checked + .slider + .label::before {
+    content: "Repetir numero"; /* Texto ao ativar */
+  }
+
+
+  .toggle input { /* Esconder input padrão */
+    display: none;
+  }
+
+}
