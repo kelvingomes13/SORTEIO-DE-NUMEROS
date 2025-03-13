@@ -1,0 +1,169 @@
+main {
+  display: grid;
+  grid-template-columns:repeat(2,1fr);
+  gap: 108px;
+  margin-left: 134px;
+  margin: 134px;
+  margin-bottom: 153px;
+  margin-top: 89px;  
+  align-items: center;
+  justify-content: center;
+  
+  & .intro {
+    max-width: 100%;
+    height: 402px;
+    & h2{
+      background-clip: text;
+      -webkit-background-clip: text;
+      font: var(--text-medium);
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #C7C9CC 0%, #3D3D3D 100%);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;      
+    }
+
+    & h1{
+      white-space: nowrap;
+      overflow: hidden;      
+      font: var(--text-large);
+      color: var(--content-primary);
+    }
+
+    & h3{
+      font: var(--text-small);
+      color: var(--content-brand);
+    }
+
+    & p{
+      font: var(--text-small);
+      color: var(--content-secondary);
+    }
+    & .info {
+      margin-top: 2.375rem;
+      & .info-1 {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 2.25rem;
+      }
+    }
+
+  }
+
+  & .raffle {  
+
+    & h2 {
+      font: 700 20px/150% 'Roboto Flex', sans-serif;
+      color: var(--content-primary);
+    }
+    & p {
+      font: var(--text-small);
+      color: var(--content-secondary);
+      justify-content: space-around;
+      padding-bottom: 2.5rem;
+    }
+  }  
+}
+.numbers{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  & .number {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    & h2 {
+      font: 700 16px/150% 'Roboto Flex', sans-serif;      
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+    & span {
+      
+      font: 700 32px/150% 'Sora', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      color: var(--content-primary)
+    }
+    
+  }
+  
+  & .box{    
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    
+    width: 86px;
+    height: 56px;
+    
+    background: var(--background-secondary);
+    
+    border-radius: 8px;    
+  }  
+}
+    /* Estilo do elemento principal */
+.box {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pseudo-elemento para simular a borda com gradiente */
+.box:hover::before {
+  content: "";
+  position: absolute;
+  background-image: #ffffff;
+  top: -1px; /* Ajuste para a espessura da borda */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(
+      to right,
+      #77C0AF 0%,
+      #D1DC97 14.84%,
+      #E9A9B3 32.15%,
+      #D586E0 65.79%,
+      #91A1FA 84.58%
+  );
+  border-radius: 8px; /* Bordas arredondadas */
+  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+
+     transition: opacity 0.3s ease; /* Transição suave */
+            background-size: 200% 200%; /* Aumenta o tamanho do gradiente para permitir o movimento */
+  }
+.box:hover {
+  background-color: var(--background-tertiary);  
+}
+
+   @keyframes moverGradienteVaiVolta {
+            0% {
+                background-position: 0% 50%;
+            }     
+            50% {
+                background-position: 20% 20%;
+            }
+            100% {
+                background-position: 0% 75%;
+            }     
+        }
+
+        /* Efeito hover para mostrar a borda e iniciar a animação */
+        .box:hover::before {
+            opacity: 1; /* Torna a borda visível */
+            animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
+        }
+ 

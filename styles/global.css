@@ -17,17 +17,11 @@
   --background-brand: #C58DE7;
   --background-gray: #3D3D3D;
 
-  --accent-pink: #D586E0;
-  --accent-blue: #91A1FA;
-  --accent-green: #77C0Af;
-  --accent-lime: #D1DC97;
-  --accent-red: #E9A9B3;
-
   --gradient-border:#77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%;
 
-  --gradient-background:#D586E0 0%, #91A1FA 98.93%;
+  
 
-  --gradient-content: #C7C9CC 0%, #3D3D3D 100%;
+  --gradient-content: linear-gradient(90deg, #C7C9CC 0%, #3D3D3D 100%);
 
   --text-small: 500 14px/150% 'Roboto Flex', sans-serif;
   --text-medium: 500 16px/150% 'Roboto Flex', sans-serif;
@@ -36,11 +30,13 @@
 
 }
 
+html, body {
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    overflow: hidden; /* Remove a rolagem */
+}
 body {
   background-image: url("../assets/background.png");
   background-color: var(--background-primary);
-  
-
 }
 
 .sm {
