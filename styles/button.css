@@ -29,41 +29,64 @@
   right: -1px;
   bottom: -1px;
   background: linear-gradient(
-      to right,
-      #77C0AF 0%,
-      #D1DC97 14.84%,
-      #E9A9B3 32.15%,
-      #D586E0 65.79%,
-      #91A1FA 84.58%
-  );
-  border-radius: 8px; /* Bordas arredondadas */
-  z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+  to right,
+  #77C0AF 0%,
+  #D1DC97 14.84%,
+  #E9A9B3 32.15%,
+  #D586E0 65.79%,
+  #91A1FA 84.58%
+);
+border-radius: 8px; /* Bordas arredondadas */
+z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
 
-     transition: opacity 0.3s ease; /* Transição suave */
-            background-size: 200% 200%; /* Aumenta o tamanho do gradiente para permitir o movimento */
-  }
+  transition: opacity 0.3s ease; /* Transição suave */
+  background-size: 200% 200%; /* Aumenta o tamanho do gradiente para permitir o movimento */
+} 
 .btn:hover {
   background-color: var(--background-primary);
-    
 }
 
-   @keyframes moverGradienteVaiVolta {
-            0% {
-                background-position: 0% 50%;
-            }     
-            50% {
-                background-position: 20% 20%;
-            }
-            100% {
-                background-position: 0% 75%;
-            }     
-        }
+@keyframes moverGradienteVaiVolta {
+0% {
+    background-position: 0% 50%; 
+}
+50% {
+    background-position: 20% 50%;        
+}
+100% {
+    background-position: 0% 50%;
+}   
+}
 
-        /* Efeito hover para mostrar a borda e iniciar a animação */
-        .box:hover::before {
-            opacity: 1; /* Torna a borda visível */
-            animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
-        }
- 
+/* Efeito hover para mostrar a borda e iniciar a animação */
+.btn:hover::before {
+opacity: 1; /* Torna a borda visível */
+animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
+}
+        
 
+img {
+  width: 24px;
+  height: 24px;
+  
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+/* Animação para mover o SVG da direita para a esquerda */
+@keyframes moverSvgDireitaEsquerda {
+  0% {
+      transform: translateX(0); /* Posição inicial */
+  }
+  50% {
+      transform: translateX(14px); /* Move para a esquerda */
+  }
+  100% {
+      transform: translateX(0); /* Volta à posição inicial */
+  }
+}
+
+/* Efeito hover para iniciar a animação */
+.button .btn:hover img {
+  animation: moverSvgDireitaEsquerda 1s linear infinite; /* Aplica a animação */
+}
      

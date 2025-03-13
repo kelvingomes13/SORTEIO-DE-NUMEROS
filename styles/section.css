@@ -161,9 +161,5 @@ main {
             }     
         }
 
-        /* Efeito hover para mostrar a borda e iniciar a animação */
-        .box:hover::before {
-            opacity: 1; /* Torna a borda visível */
-            animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
-        }
+        
  
