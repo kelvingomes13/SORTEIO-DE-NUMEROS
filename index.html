@@ -62,20 +62,20 @@
         <div class="number">
           <h2>NÚMERO</h2>
           <div class="box">
-            <span>00</span>
+            <span id="quantidade">2</span>
           </div>
         </div>
 
         <div class="number">
           <h2>DE</h2>
           <div class="box">
-            <span>00</span>
+            <span id="inicio">1</span>
           </div>
         </div>
         <div class="number">
           <h2>de</h2>
           <div class="box">
-            <span>00</span>
+            <span id="fim">100</span>
           </div>
         </div>                     
       </div>
@@ -89,11 +89,20 @@
       </div>
 
       <div class="button">
-        <button class="btn">
+        <button id="sortearBtn" class="btn">
           <span>SORTEAR</span>
           <img src="./assets/icons/seta.svg" alt="seta">
         </button>
       </div>
+    </section>
+
+    <section id="resultado" class="resultado">
+      <h2>RESULTADO DO SORTEIO</h2>
+      <div id="numerosSorteados"></div>
+      <button id="voltarBtn" class="btn">
+        <span>VOLTAR</span>
+        <img src="./assets/icons/seta.svg" alt="seta">
+      </button>
     </section>
   </main>
 

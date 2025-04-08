@@ -149,17 +149,20 @@ main {
   background-color: var(--background-tertiary);  
 }
 
-   @keyframes moverGradienteVaiVolta {
-            0% {
-                background-position: 0% 50%;
-            }     
-            50% {
-                background-position: 20% 20%;
-            }
-            100% {
-                background-position: 0% 75%;
-            }     
-        }
+#resultado {
+  display: none;
+}
 
-        
- 
+
+
+@keyframes moverGradienteVaiVolta {
+0% {
+    background-position: 0% 50%;
+}     
+50% {
+    background-position: 20% 20%;
+}
+100% {
+    background-position: 0% 75%;
+}     
+}
