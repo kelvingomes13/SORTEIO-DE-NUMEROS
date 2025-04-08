@@ -151,8 +151,36 @@ main {
 
 #resultado {
   display: none;
-}
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  & h2{
+    font: 700 20px/150% 'Roboto Flex', sans-serif;
+    color: var(--content-primary);
+  }
+  & .titulo-sorteio {
+    font: 700 16px/150% 'Roboto Mono', sans-serif;
+    color: var(--content-secondary);
+    justify-content: space-around;
+    padding-bottom: 2.5rem;
+  }
+  & #numerosSorteados h2 {
+    font: 700 20px/150% 'Roboto Flex', sans-serif;
+    color: var(--content-primary);
+  }
+  & #numerosSorteados {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;  
+    font: 800 48px/150% 'Roboto Mono', sans-serif;
+    color: var(--content-brand);  
+  }
 
+}
+  
 
 
 @keyframes moverGradienteVaiVolta {
@@ -166,3 +194,30 @@ main {
     background-position: 0% 75%;
 }     
 }
+
+
+
+/* 23 */
+
+width: 58px;
+height: 98px;
+
+font-family: 'Roboto Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 150%;
+/* or 72px */
+display: flex;
+align-items: center;
+text-align: center;
+text-transform: uppercase;
+
+color: #C58DE7;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
