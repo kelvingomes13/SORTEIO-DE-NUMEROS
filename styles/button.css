@@ -65,10 +65,7 @@ animation: moverGradienteVaiVolta 3s linear infinite; /* Aplica a animação */
 }
         
 
-img {
-  width: 24px;
-  height: 24px;
-  
+img {  
   transition: transform 0.3s ease; /* Transição suave */
 }
 
@@ -89,4 +86,29 @@ img {
 .button .btn:hover img {
   animation: moverSvgDireitaEsquerda 1s linear infinite; /* Aplica a animação */
 }
-     
+
+
+.icon-reload {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  cursor: pointer;
+}
+
+.icon-reload img:first-child {
+  transition: transform 2s ease ;
+}
+
+#sortearNovamenteBtn:hover img:first-child {
+  transform: rotate(400deg);
+}
+
+.icon-reload img:last-child {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; 
+}
+
