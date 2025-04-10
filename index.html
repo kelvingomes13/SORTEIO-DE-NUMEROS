@@ -16,11 +16,11 @@
     />
   </head>
   <body>
-    <header class="flex gap-1">
-      <a href="#">
+    <header id="logo-start" class="flex gap-1">
+      <a id="logo-start" class="flex gap-1" href="#logo-start">
         <img src="assets/logo.svg" alt="logo" />
+        <h2 class="name">numberS</h2>
       </a>
-      <h2 class="name">numberS</h2>
     </header>
     <main>
       <section class="intro">
@@ -113,11 +113,16 @@
         <div id="numerosSorteados"></div>
         <button id="sortearNovamenteBtn" class="btn">
           <span>Sortear Novamente</span>
-          <img src="./assets/icons/reload.svg" alt="reload" />
+
+          <div class="icon-reload">
+            <img src="./assets/icons/circularseta.svg" alt="icon" />
+            <img src="./assets/icons/play.svg" alt="icon">
+          </div>
         </button>
       </section>
     </main>
 
     <script src="./script.js"></script>
+    <script src="./reload.js"></script>
   </body>
 </html>
