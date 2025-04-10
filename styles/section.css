@@ -194,30 +194,3 @@ main {
     background-position: 0% 75%;
 }     
 }
-
-
-
-/* 23 */
-
-width: 58px;
-height: 98px;
-
-font-family: 'Roboto Mono';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-line-height: 150%;
-/* or 72px */
-display: flex;
-align-items: center;
-text-align: center;
-text-transform: uppercase;
-
-color: #C58DE7;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-z-index: 1;

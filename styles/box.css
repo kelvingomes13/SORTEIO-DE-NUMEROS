@@ -1,0 +1,47 @@
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  background: var(--background-brand);
+  border-radius: 10px;
+  position: relative;
+  animation: 
+    scaleUp 0.5s ease-out,
+    rotateHalf 1s ease-in-out 0.5s,
+    fadeOut 0.5s ease 1.5s forwards;
+}
+
+.number1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  font-family: 'Sora', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: 
+    showNumber 0.1s ease 0.8s forwards,
+    moveLeft 0.5s ease 1s forwards;
+}
+
+ @keyframes scaleUp {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes rotateHalf {
+            to { transform: rotate(180deg); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: scale(0.8)  }
+        }
+
+        @keyframes showNumber {
+            to { opacity: 1; }
+        }
+
+        @keyframes moveLeft {
+            to { transform: translate(-80px, -50%); color: black; }
+        }
