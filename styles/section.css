@@ -85,15 +85,36 @@ main {
       color: #FFFFFF;
       margin-bottom: 0.5rem;
     }
-    & span {
-      
-      font: 700 32px/150% 'Sora', sans-serif;
+     & .number-input {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
       text-align: center;
-      text-transform: uppercase;
-      color: var(--content-primary)
-    }
+      font: 700 32px/150% 'Sora', sans-serif;
+      color: white;
+      
+      padding: 0;
+       &:focus {
+        outline: none;
+        box-shadow: none;
+        border: none;
+      }
+      
+    
+     }
+  }
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
     
   }
+
+
+
   
   & .box{    
     box-sizing: border-box;
@@ -114,6 +135,7 @@ main {
     /* Estilo do elemento principal */
 .box {
   position: relative;
+  display: inline-block;
   width: 300px;
   height: 200px;
   background-color: #ffffff;
@@ -180,7 +202,36 @@ main {
   }
 
 }
-  
+
+/* novo cursor */
+
+.custom-caret {
+  caret-color: transparent; /* Esconde o cursor padrão */
+ }
+.box:focus-within::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 4px; /* Espessura do cursor */
+  height: 40px; /* Altura igual ao input */
+  background: linear-gradient(
+      45deg,
+      #77C0AF 0%,
+      #D1DC97 14.84%,
+      #E9A9B3 32.15%,
+      #D586E0 65.79%,
+      #91A1FA 84.58%
+  );;
+  animation: blink 1s infinite;
+  pointer-events: none; /* Permite interação com o input */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 
 @keyframes moverGradienteVaiVolta {

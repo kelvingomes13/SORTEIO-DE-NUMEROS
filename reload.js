@@ -9,5 +9,6 @@ document.getElementById('logo-start').addEventListener('click', function () {
   // Recarrega a página após pequeno delay
   setTimeout(() => {
     window.location.reload()
-  }, 100)
+  }, 1000)
 })
+
