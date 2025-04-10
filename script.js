@@ -1,9 +1,37 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Variáveis globais dentro do escopo
   let contadorSorteios = 0
-  let permitirRepeticao = false // Corrigido o nome da variável
+  let permitirRepeticao = false
+  const loadingOverlay = document.getElementById('loadingOverlay')
 
-  // Função para atualizar o texto do label
+  // Elementos do DOM
+  const elements = {
+    switch: document.getElementById('switch'),
+    sortearBtn: document.getElementById('sortearBtn'),
+    sortearNovamenteBtn: document.getElementById('sortearNovamenteBtn'),
+    resultadoSection: document.getElementById('resultado'),
+    raffleSection: document.querySelector('.raffle'),
+    numerosSorteados: document.getElementById('numerosSorteados'),
+    quantidadeInput: document.getElementById('quantidade'),
+    inicioInput: document.getElementById('inicio'),
+    fimInput: document.getElementById('fim')
+  }
+
+  // Funções de utilidade
+  const utils = {
+    showLoading: () => (loadingOverlay.style.display = 'flex'),
+    hideLoading: () => (loadingOverlay.style.display = 'none'),
+    validateInputs: (quantidade, inicio, fim) => {
+      const errors = []
+      if (isNaN(quantidade) || quantidade < 1)
+        errors.push('Quantidade inválida')
+      if (isNaN(inicio) || inicio < 0) errors.push('Valor inicial inválido')
+      if (isNaN(fim) || fim < 1) errors.push('Valor final inválido')
+      if (inicio >= fim)
+        errors.push('O valor final deve ser maior que o inicial')
+      return errors
+    }
+  }
+
   function atualizarLabel() {
     const label = document.querySelector('.toggle .label')
     if (label) {
@@ -13,142 +41,111 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Configuração do toggle switch
-  const switchElement = document.getElementById('switch')
-  if (switchElement) {
-    switchElement.addEventListener('change', function () {
-      permitirRepeticao = this.checked // Corrigido para usar o nome correto
+  // Event Listeners
+  if (elements.switch) {
+    elements.switch.addEventListener('change', function () {
+      permitirRepeticao = this.checked
       atualizarLabel()
-      console.log('Modo com repetição:', permitirRepeticao)
     })
   }
 
-  // Configuração do botão de sorteio inicial
-  const sortearBtn = document.getElementById('sortearBtn')
-  if (sortearBtn) {
-    sortearBtn.addEventListener('click', function () {
+  const handleSortear = () => {
+    utils.showLoading()
+    setTimeout(() => {
+      // Simula carregamento
       sortearNumerosEExibir()
-    })
+      utils.hideLoading()
+    }, 500)
   }
 
-  // Configuração do botão "Sortear Novamente"
-  const sortearNovamenteBtn = document.getElementById('sortearNovamenteBtn')
-  if (sortearNovamenteBtn) {
-    sortearNovamenteBtn.addEventListener('click', function () {
-      sortearNumerosEExibir()
-    })
-  }
+  if (elements.sortearBtn)
+    elements.sortearBtn.addEventListener('click', handleSortear)
+  if (elements.sortearNovamenteBtn)
+    elements.sortearNovamenteBtn.addEventListener('click', handleSortear)
 
-  // Função para sortear números únicos
+  // Lógica do sorteio
   function sortearNumeros(quantidade, inicio, fim) {
     let numeros = []
+    const range = fim - inicio + 1
 
-    if (permitirRepeticao) {
-      // Modo com repetição permitida
-      for (let i = 0; i < quantidade; i++) {
-        numeros.push(Math.floor(Math.random() * (fim - inicio + 1)) + inicio)
-      }
-    } else {
-      // Modo sem repetição (usa Set)
-      let numerosUnicos = new Set()
-      const range = fim - inicio + 1
-
-      if (quantidade > range) {
-        console.error(
-          `Não é possível sortear ${quantidade} números únicos no intervalo especificado`
-        )
-        return []
-      }
-
-      while (numerosUnicos.size < quantidade) {
-        const numero = Math.floor(Math.random() * (fim - inicio + 1)) + inicio
-        numerosUnicos.add(numero)
-      }
-      numeros = Array.from(numerosUnicos)
+    if (!permitirRepeticao && quantidade > range) {
+      alert(
+        `Não é possível sortear ${quantidade} números únicos entre ${inicio} e ${fim}`
+      )
+      return []
     }
 
-    return numeros.sort((a, b) => a - b)
+    const generator = permitirRepeticao
+      ? Array.from(
+          { length: quantidade },
+          () => Math.floor(Math.random() * range) + inicio
+        )
+      : Array.from(
+          new Set(
+            Array.from(
+              { length: range * 2 },
+              () => Math.floor(Math.random() * range) + inicio
+            )
+          )
+        ).slice(0, quantidade)
+
+    return generator.sort((a, b) => a - b)
   }
 
   function sortearNumerosEExibir() {
-    // Obter os valores de quantidade, início e fim
-    const quantidade = parseInt(
-      document.getElementById('quantidade')?.textContent || 6
-    )
-    const inicio = parseInt(document.getElementById('inicio')?.textContent || 1)
-    const fim = parseInt(document.getElementById('fim')?.textContent || 100)
+    const quantidade = parseInt(elements.quantidadeInput.value)
+    const inicio = parseInt(elements.inicioInput.value)
+    const fim = parseInt(elements.fimInput.value)
 
-    if (isNaN(quantidade) || isNaN(inicio) || isNaN(fim) || inicio >= fim) {
-      console.error('Parâmetros inválidos para o sorteio')
+    const errors = utils.validateInputs(quantidade, inicio, fim)
+    if (errors.length > 0) {
+      alert(errors.join('\n'))
       return
     }
 
     const numerosSorteados = sortearNumeros(quantidade, inicio, fim)
+    if (numerosSorteados.length === 0) return
+
     exibirResultado(numerosSorteados)
   }
 
+  // Exibição de resultados
   function exibirResultado(numerosSorteados) {
-    const resultadoDiv = document.getElementById('numerosSorteados')
-    const resultadoSection = document.getElementById('resultado')
-    const raffleSection = document.querySelector('.raffle')
-
-    if (!resultadoDiv || !resultadoSection || !raffleSection) {
-      console.error('Elementos não encontrados para exibir resultado')
-      return
-    }
-
-    // Incrementa o contador de sorteios
     contadorSorteios++
+    elements.raffleSection.style.display = 'none'
+    elements.resultadoSection.style.display = 'flex'
 
-    // Alternar entre as seções
-    raffleSection.style.display = 'none'
-    resultadoSection.style.display = 'flex'
-
-    // Criar elemento "1º Sorteio" se não existir
-    let tituloSorteio = resultadoSection.querySelector('.titulo-sorteio')
-    if (!tituloSorteio) {
-      tituloSorteio = document.createElement('h3')
-      tituloSorteio.className = 'titulo-sorteio'
-      resultadoSection.insertBefore(tituloSorteio, resultadoDiv)
-    }
+    const tituloSorteio =
+      elements.resultadoSection.querySelector('.titulo-sorteio') ||
+      document.createElement('h3')
+    tituloSorteio.className = 'titulo-sorteio'
     tituloSorteio.textContent = `${contadorSorteios}º Resultado`
 
-    // Exibir os números sorteados
-    resultadoDiv.innerHTML = ''
+    if (!elements.resultadoSection.contains(tituloSorteio)) {
+      elements.resultadoSection.insertBefore(
+        tituloSorteio,
+        elements.numerosSorteados
+      )
+    }
+
+    elements.numerosSorteados.innerHTML = ''
 
     numerosSorteados.forEach((numero, index) => {
       setTimeout(() => {
-        const box1 = document.createElement('div')
-        box1.className = 'box1'
+        const numeroElement = document.createElement('div')
+        numeroElement.className = 'numero-animado'
+        numeroElement.innerHTML = `
+          <div class="box-animado">
+            <div class="numero">${numero}</div>
+          </div>
+        `
+        elements.numerosSorteados.appendChild(numeroElement)
 
-        const number1 = document.createElement('div')
-        number1.className = 'number1'
-        number1.textContent = numero
-
-        box1.appendChild(number1)
-        resultadoDiv.appendChild(box1)
-
-        // Animação
-        setTimeout(() => {
-          box1.style.animation = 'none'
-          number1.style.animation = 'none'
-          void box1.offsetWidth
-          void number1.offsetWidth
-
-          box1.style.animation =
-            'scaleUp 0.5s ease-out, rotateHalf 1s ease-in-out 0.5s, fadeOut 0.5s ease 1.5s'
-          number1.style.animation =
-            'showNumber 0.1s ease 0.8s forwards, moveLeft 0.5s ease 1.5s' 
-
-          // Após animação, transformar em número final
-          setTimeout(() => {
-            const finalnumber = document.createElement('div')
-            finalnumber.className = 'numero-final'
-            finalnumber.textContent = numero
-            resultadoDiv.replaceChild(finalnumber, box1)
-          }, 2000)
-        }, 10)
-      }, index * 2200) // Atraso entre cada número (2.2s)
+        // Dispara animação após inserção
+        requestAnimationFrame(() => {
+          numeroElement.classList.add('animate')
+        })
+      }, index * 300)
     })
   }
 
