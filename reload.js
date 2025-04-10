@@ -1,5 +1,13 @@
-document.getElementById('logo-start').addEventListener('click', function() {
-    // Recarrega a página
-    window.location.reload(); 
-  } 
-);
+document.getElementById('logo-start').addEventListener('click', function () {
+  // Mostra o overlay de carregamento
+  const overlay = document.getElementById('loadingOverlay')
+  overlay.style.display = 'flex'
+
+  // Bloqueia interações
+  document.body.style.pointerEvents = 'none'
+
+  // Recarrega a página após pequeno delay
+  setTimeout(() => {
+    window.location.reload()
+  }, 100)
+})

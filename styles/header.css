@@ -26,6 +26,35 @@ header {
   animation: rotate-slow 1s linear;
 }
 
+/* Overlay de carregamento */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/background.png");
+  background-color: var(--background-primary);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para o ícone personalizado */
+.custom-loader {
+  width: 80px; /* Ajuste conforme necessário */
+  height: 80px; /* Ajuste conforme necessário */
+  animation: spin 1.5s linear infinite; /* Opcional: se quiser rotação */
+}
+
+/* Se seu ícone já tiver animação própria, remova a animação spin */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 @keyframes rotate-slow { 
   0% {
     transform: rotate(0deg);

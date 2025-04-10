@@ -16,12 +16,24 @@
     />
   </head>
   <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      
+          <svg class="custom-loader" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.71963C15.7715 5.71963 14.7757 6.71548 14.7757 7.94393H9.05607C9.05607 3.55662 12.6127 0 17 0C21.3874 0 24.9439 3.55662 24.9439 7.94393C24.9439 12.3312 21.3874 15.8878 17 15.8878V10.1682C18.2284 10.1682 19.2243 9.17237 19.2243 7.94393C19.2243 6.71548 18.2284 5.71963 17 5.71963ZM28.2803 17C28.2803 15.7715 27.2845 14.7757 26.0561 14.7757V9.05607C30.4434 9.05607 34 12.6127 34 17C34 21.3874 30.4434 24.9439 26.0561 24.9439C21.6687 24.9439 18.1121 21.3874 18.1121 17H23.8318C23.8318 18.2284 24.8277 19.2243 26.0561 19.2243C27.2845 19.2243 28.2803 18.2284 28.2803 17ZM7.94393 19.2243C6.71548 19.2243 5.71963 18.2284 5.71963 17C5.71963 15.7715 6.71548 14.7757 7.94393 14.7757C9.17237 14.7757 10.1682 15.7715 10.1682 17H15.8878C15.8878 12.6127 12.3312 9.05607 7.94393 9.05607C3.55662 9.05607 0 12.6127 0 17C0 21.3874 3.55662 24.9439 7.94393 24.9439V19.2243ZM17 28.2803C18.2284 28.2803 19.2243 27.2845 19.2243 26.0561H24.9439C24.9439 30.4434 21.3874 34 17 34C12.6127 34 9.05607 30.4434 9.05607 26.0561C9.05607 21.6687 12.6127 18.1121 17 18.1121V23.8318C15.7715 23.8318 14.7757 24.8277 14.7757 26.0561C14.7757 27.2845 15.7715 28.2803 17 28.2803Z" fill="#C58DE7"/>
+</svg>
+
+      
+    </div>
     <header id="logo-start" class="flex gap-1">
       <a id="logo-start" class="flex gap-1" href="#logo-start">
         <img src="assets/logo.svg" alt="logo" />
         <h2 class="name">numberS</h2>
       </a>
     </header>
+
+    <div class="page-reload-effect" id="pageReloadEffect">
+      <div class="loader"></div>
+    </div>
     <main>
       <section class="intro">
         <h2>ONLINE - GRATUITO</h2>
@@ -116,7 +128,7 @@
 
           <div class="icon-reload">
             <img src="./assets/icons/circularseta.svg" alt="icon" />
-            <img src="./assets/icons/play.svg" alt="icon">
+            <img src="./assets/icons/play.svg" alt="icon" />
           </div>
         </button>
       </section>
