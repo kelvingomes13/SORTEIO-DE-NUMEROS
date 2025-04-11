@@ -11,4 +11,3 @@ document.getElementById('logo-start').addEventListener('click', function () {
     window.location.reload()
   }, 1000)
 })
-

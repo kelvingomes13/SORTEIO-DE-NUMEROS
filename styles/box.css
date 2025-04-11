@@ -25,23 +25,23 @@
     moveLeft 0.5s ease 1s forwards;
 }
 
- @keyframes scaleUp {
-            from { transform: scale(0); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+@keyframes scaleUp {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
-        @keyframes rotateHalf {
-            to { transform: rotate(180deg); }
-        }
+@keyframes rotateHalf {
+to { transform: rotate(180deg); }
+}
 
-        @keyframes fadeOut {
-            to { opacity: 0; transform: scale(0.8)  }
-        }
+@keyframes fadeOut {
+    to { opacity: 0; transform: scale(0.8)  }
+}
 
-        @keyframes showNumber {
-            to { opacity: 1; }
-        }
+@keyframes showNumber {
+    to { opacity: 1; }
+}
 
-        @keyframes moveLeft {
-            to { transform: translate(-80px, -50%); color: black; }
-        }
+@keyframes moveLeft {
+    to { transform: translate(-80px, -50%); color: black; }
+}

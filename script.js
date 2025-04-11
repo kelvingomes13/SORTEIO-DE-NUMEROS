@@ -132,20 +132,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     numerosSorteados.forEach((numero, index) => {
       setTimeout(() => {
-        const numeroElement = document.createElement('div')
-        numeroElement.className = 'numero-animado'
-        numeroElement.innerHTML = `
-          <div class="box-animado">
-            <div class="numero">${numero}</div>
-          </div>
-        `
-        elements.numerosSorteados.appendChild(numeroElement)
+        let box1 = document.createElement('div')
+        box1.className = 'box1'
 
-        // Dispara animação após inserção
-        requestAnimationFrame(() => {
-          numeroElement.classList.add('animate')
-        })
-      }, index * 300)
+        const number1 = document.createElement('div')
+        number1.className = 'number1'
+        number1.textContent = numero
+
+        box1.appendChild(number1)
+        elements.numerosSorteados.appendChild(box1)
+
+        // Animação
+        setTimeout(() => {
+          box1.style.animation = 'none'
+          number1.style.animation = 'none'
+          void box1.offsetWidth
+          void number1.offsetWidth
+
+          box1.style.animation =
+            'scaleUp 0.5s ease-out, rotateHalf 1s ease-in-out 0.5s, fadeOut 0.5s ease 1.5s'
+          number1.style.animation =
+            'showNumber 0.1s ease 0.8s forwards, moveLeft 0.5s ease 1.5s'
+
+          // Após animação, transformar em número final
+          setTimeout(() => {
+            const finalnumber = document.createElement('div')
+            finalnumber.className = 'numero-final'
+            finalnumber.textContent = numero
+            elements.numerosSorteados.replaceChild(finalnumber, box1)//elements.numerosSorteados.removeChild(box1) é o mesmo que replaceChild, mas remove o box1 antes de adicionar o finalnumber
+          }, 2000)
+        }, 10)
+      }, index * 2200)
     })
   }
 
